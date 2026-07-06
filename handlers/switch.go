@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"html/template"
+	"my-ascii-art-web/ascii_art"
 	"net/http"
-	"web/ascii_art"
 )
 
 func Switch(w http.ResponseWriter, r *http.Request) {

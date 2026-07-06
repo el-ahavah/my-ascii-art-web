@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ascii-web</title>
+    <style>
+.active {
+    font-weight: bold;
+    color: green;
+}
+</style>
+</head>
+<body>
+    <h1>ASCII ART GENERATOR</h1>
+    <form action="/ascii-art" method="POST">
+        <textarea name="text" placeholder="Enter text"></textarea>
+        <br>
+        <select name="banner">
+            <option value="standard">standard</option>
+            <option value="shadow">shadow</option>
+            <option value="thinkertoy">thinkertoy</option>
+        </select>
+        <br>
+        <button type="submit">Generate</button>
+    </form>
+  
+    {{if .Result}}
+    <pre>{{.Result}}</pre>
+    
+    <a href="/ascii-art-switch?text={{.Text}}&banner=standard" {{if eq .Banner "standard"}}class="active"{{end}}>standard</a>
+    <a href="/ascii-art-switch?text={{.Text}}&banner=shadow" {{if eq .Banner "shadow"}}class="active"{{end}}>shadow</a>
+    <a href="/ascii-art-switch?text={{.Text}}&banner=thinkertoy" {{if eq .Banner "thinkertoy"}}class="active"{{end}}>thinkertoy</a>
+
+    <!-- <a href="/ascii-art-switch?text={{.Text}}&banner=banners/standard.txt" class="{{if eq .Banner "banners/standard.txt"}}active{{end}}">standard</a>
+    <a href="/ascii-art-switch?text={{.Text}}&banner=banners/shadow.txt" class="{{if eq .Banner "banners/shadow.txt"}}active{{end}}">shadow</a>
+    <a href="/ascii-art-switch?text={{.Text}}&banner=banners/thinkertoy.txt" class="{{if eq .Banner "banners/thinkertoy.txt"}}active{{end}}">thinkertoy</a> -->
+   
+    {{end}}
+</body>
+</html>

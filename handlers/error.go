@@ -28,18 +28,18 @@ type ErrorPage struct {
 }
 
 func ErrorHandler(w http.ResponseWriter, status int, message string) {
-	w.WriteHeader(status)
-
 	data := ErrorPage{
 		Code:    status,
 		Message: message,
 	}
 
-	temp, err := template.ParseFiles("templates/error.html")
+	temp, err := template.ParseFiles("templates/erroor.html")
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
+
+	w.WriteHeader(status)
 
 	err = temp.Execute(w, data)
 	if err != nil {
@@ -47,3 +47,5 @@ func ErrorHandler(w http.ResponseWriter, status int, message string) {
 		return
 	}
 }
+
+// curl -i http://localhost:8080/badroute

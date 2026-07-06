@@ -15,6 +15,7 @@
 //		}
 //		temp.Execute(w, nil)
 //	}
+
 package handlers
 
 import (
@@ -33,7 +34,7 @@ func ErrorHandler(w http.ResponseWriter, status int, message string) {
 		Message: message,
 	}
 
-	temp, err := template.ParseFiles("templates/erroor.html")
+	temp, err := template.ParseFiles("templates/error.html")
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return

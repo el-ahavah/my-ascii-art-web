@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"html/template"
+	"my-ascii-art-web/ascii_art"
 	"net/http"
-	"web/ascii_art"
 )
 
 type PageData struct {

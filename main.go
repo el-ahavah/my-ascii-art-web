@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"my-ascii-art-web/handlers"
 	"net/http"
-	"web/handlers"
 )
 
 func main() {

@@ -7,6 +7,9 @@ import (
 )
 
 func main() {
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
 	// routes wrapped with middleware
 	http.Handle("/", handlers.Logger(http.HandlerFunc(handlers.Home)))
 	http.Handle("/ascii-art", handlers.Logger(http.HandlerFunc(handlers.Ascii)))
